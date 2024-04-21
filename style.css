@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+}
+
+
+.cards{
+    display: grid;
+    width: 90%;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+
+img{
+    height: 20rem;
+    width: 15rem;
+    border-radius: 2rem;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.text{
+    background-color: #fff;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.333);
+    position: absolute;
+    height: 4rem;
+    width: 10rem;
+    text-align: center;
+    align-content: center;
+    border-radius: 20px;
+    top: 20rem;
+
+}
+
+
+/*HOVER AND ANIMATIONS*/
+
+.container:hover .text{
+    animation: animate 0.5s linear forwards alternate;
+}
+.container:hover{
+    animation: overflow 0.5s linear forwards alternate;
+    animation: name duration timing-function delay iteration-count direction fill-mode;
+}
+
+.container:not(:hover) .text{
+    animation: goback 0.5s linear forwards alternate;
+}
+.container:not(:hover) {
+    animation: flowback 0.5s linear forwards alternate;
+}
+
+
+@keyframes animate {
+    0%{
+        top: 20rem;
+    }
+    50%{
+        top: 15rem;
+    }
+    100%{
+        top: 18rem;
+        z-index: 99;
+    }
+}
+@keyframes overflow {
+    0%{
+        overflow: hidden;
+    }
+    50%{
+        overflow: hidden;
+    }
+    100%{
+        overflow: initial;
+    }
+}
+@keyframes goback {
+    100%{
+        top: 20rem;
+    }
+    50%{
+        top: 15rem;
+    }
+    0%{
+        top: 18rem;
+    }
+}
+@keyframes flowback {
+    100%{
+        overflow: hidden;
+    }
+    50%{
+        overflow: hidden;
+    }
+    0%{
+        overflow: initial;
+    }
+}
+
+
+/*RESPONSIVE CODES*/
+
+/*MEDIUM SCREENS*/
+@media(max-width: 1400px){
+    .cards{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/*SMALL SCREENS*/
+@media(max-width: 768px){
+    .cards{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
